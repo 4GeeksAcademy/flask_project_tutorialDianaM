@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 # Correct the path to the model file
-model_path = os.path.join(os.path.dirname(__file__), 'src/optimized_random_forest_model.joblib')
+model_path = os.path.join(os.path.dirname(__file__), 'optimized_random_forest_model.joblib')
 model = load(model_path)
 
 class_dict = {

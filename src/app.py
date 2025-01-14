@@ -1,15 +1,14 @@
 # This is a small change to ensure Git detects the file
 
 from flask import Flask, request, render_template
-from pickle import load
+from joblib import load
 import os
 
 app = Flask(__name__)
 
 # Correct the path to the model file
-model_path = os.path.join(os.path.dirname(__file__), 'optimized_random_forest_model_1000estimators_max_depth5_min_samples_split5_min_samples_leaf2_42.sav')
-with open(model_path, "rb") as model_file:
-    model = load(model_file)
+model_path = os.path.join(os.path.dirname(__file__), 'src/optimized_random_forest_model.joblib')
+model = load(model_path)
 
 class_dict = {
     "0": "Iris setosa",

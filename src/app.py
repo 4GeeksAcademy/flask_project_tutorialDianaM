@@ -8,7 +8,8 @@ import os
 app = Flask(__name__)
 
 model_path = os.path.join(os.path.dirname(__file__), 'optimized_random_forest_model_1000estimators_max_depth5_min_samples_split5_min_samples_leaf2_42.sav')
-model = load(open(model_path, "rb"))
+with open(model_path, "rb") ad model_file:
+    model = load(model_file)
 class_dict = {
     "0": "Iris setosa",
     "1": "Iris versicolor",
@@ -18,8 +19,6 @@ class_dict = {
 @app.route("/", methods = ["GET", "POST"])
 def index():
     if request.method == "POST":
-        
-
         # Obtain values from form
         val1 = float(request.form["val1"])
         val2 = float(request.form["val2"])

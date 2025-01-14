@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # Correct the path to the model file
-model_path = os.path.join(os.path.dirname(__file__), 'src/optimized_random_forest_model.json')
+model_path = os.path.join(os.path.dirname(__file__), 'optimized_random_forest_model.json')
 
 # Load the model parameters and classes from the JSON file
 with open(model_path, 'r') as f:
